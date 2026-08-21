@@ -1,0 +1,67 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String             @id @default(cuid())
+  email        String             @unique
+  passwordHash String
+  name         String
+  role         String             @default("RESIDENT") // RESIDENT, ADMIN
+  flatNumber   String?            // e.g. "302"
+  towerBlock   String?            // e.g. "Tower B"
+  phone        String?
+  complaints   Complaint[]
+  historyLogs  ComplaintHistory[]
+  notices      Notice[]
+  createdAt    DateTime           @default(now())
+}
+
+model Complaint {
+  id           String             @id @default(cuid())
+  title        String
+  category     String             @default("GENERAL") // PLUMBING, ELECTRICAL, LIFT, SECURITY, CLEANING, GENERAL
+  description  String
+  photoUrl     String?
+  status       String             @default("OPEN") // OPEN, IN_PROGRESS, RESOLVED
+  priority     String             @default("LOW") // LOW, MEDIUM, HIGH
+  residentId   String
+  resident     User               @relation(fields: [residentId], references: [id])
+  history      ComplaintHistory[]
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  resolvedAt   DateTime?
+}
+
+model ComplaintHistory {
+  id          String    @id @default(cuid())
+  complaintId String
+  complaint   Complaint @relation(fields: [complaintId], references: [id], onDelete: Cascade)
+  status      String    // OPEN, IN_PROGRESS, RESOLVED
+  priority    String?   // LOW, MEDIUM, HIGH
+  note        String?
+  actorId     String
+  actor       User      @relation(fields: [actorId], references: [id])
+  createdAt   DateTime  @default(now())
+}
+
+model Notice {
+  id          String    @id @default(cuid())
+  title       String
+  content     String
+  isImportant Boolean   @default(false)
+  authorId    String
+  author      User      @relation(fields: [authorId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model AppConfig {
+  key         String    @id
+  value       String
+}
