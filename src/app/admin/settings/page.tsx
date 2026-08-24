@@ -77,7 +77,7 @@ export default function AdminSettingsPage() {
         </div>
 
         {/* Overdue Configuration Card */}
-        <Card className="shadow-warm bg-white">
+        <Card className="shadow-warm bg-warm-card">
           <CardHeader className="pb-3 border-b border-warm-border/60">
             <CardTitle className="text-lg flex items-center gap-2">
               <Clock className="w-5 h-5 text-warm-primary" />
@@ -126,7 +126,7 @@ export default function AdminSettingsPage() {
         </Card>
 
         {/* Notification Integration Info Card */}
-        <Card className="shadow-warm bg-white">
+        <Card className="shadow-warm bg-warm-card">
           <CardHeader className="pb-3 border-b border-warm-border/60">
             <CardTitle className="text-lg flex items-center gap-2">
               <Mail className="w-5 h-5 text-warm-primary" />

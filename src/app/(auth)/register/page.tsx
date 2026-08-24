@@ -65,7 +65,7 @@ export default function RegisterPage() {
       </div>
 
       <div className="w-full max-w-lg space-y-6">
-        <Card className="shadow-warm-lg border-warm-border">
+        <Card className="shadow-warm-lg border-warm-border bg-warm-card">
           <CardHeader className="text-center pb-2">
             <CardTitle className="text-xl">Apartment & Resident Details</CardTitle>
             <CardDescription>

@@ -79,9 +79,9 @@ export function StatusUpdateModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
       <div
-        className="bg-white rounded-3xl border border-warm-border shadow-warm-lg max-w-lg w-full overflow-hidden"
+        className="bg-warm-card rounded-3xl border border-warm-border shadow-warm-lg max-w-lg w-full overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
@@ -156,7 +156,7 @@ export function StatusUpdateModal({
             <textarea
               rows={3}
               placeholder="e.g. Electrician scheduled for 3:00 PM today. Valve replaced and tested."
-              className="w-full p-3.5 rounded-xl border border-warm-border bg-white text-warm-dark text-xs sm:text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary"
+              className="w-full p-3.5 rounded-xl border border-warm-border bg-warm-card text-warm-dark text-xs sm:text-sm placeholder:text-warm-muted/60 focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary"
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />

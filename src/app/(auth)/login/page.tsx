@@ -68,7 +68,7 @@ export default function LoginPage() {
       </div>
 
       <div className="w-full max-w-md space-y-6">
-        <Card className="shadow-warm-lg border-warm-border">
+        <Card className="shadow-warm-lg border-warm-border bg-warm-card">
           <CardHeader className="text-center pb-2">
             <CardTitle className="text-xl">Sign In to Your Account</CardTitle>
             <CardDescription>
@@ -124,11 +124,11 @@ export default function LoginPage() {
                   onClick={() =>
                     handleQuickDemo("admin@greenview.com", "admin123")
                   }
-                  className="flex flex-col items-center justify-center p-3 rounded-xl border border-amber-200 bg-amber-50/70 hover:bg-amber-100 text-amber-900 transition-all text-xs font-bold text-center active:scale-95"
+                  className="flex flex-col items-center justify-center p-3 rounded-xl border border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 text-warm-dark transition-all text-xs font-bold text-center active:scale-95"
                 >
-                  <Shield className="w-4 h-4 text-amber-700 mb-1" />
+                  <Shield className="w-4 h-4 text-amber-500 mb-1" />
                   <span>Admin Demo</span>
-                  <span className="text-[10px] font-normal text-amber-700">admin123</span>
+                  <span className="text-[10px] font-normal text-amber-500">admin123</span>
                 </button>
 
                 <button
@@ -136,11 +136,11 @@ export default function LoginPage() {
                   onClick={() =>
                     handleQuickDemo("resident@greenview.com", "resident123")
                   }
-                  className="flex flex-col items-center justify-center p-3 rounded-xl border border-stone-200 bg-stone-50 hover:bg-stone-100 text-stone-900 transition-all text-xs font-bold text-center active:scale-95"
+                  className="flex flex-col items-center justify-center p-3 rounded-xl border border-warm-border bg-warm-surface hover:bg-warm-surface/80 text-warm-dark transition-all text-xs font-bold text-center active:scale-95"
                 >
-                  <User className="w-4 h-4 text-stone-700 mb-1" />
+                  <User className="w-4 h-4 text-warm-muted mb-1" />
                   <span>Resident Demo</span>
-                  <span className="text-[10px] font-normal text-stone-600">Flat 402</span>
+                  <span className="text-[10px] font-normal text-warm-muted">Flat 402</span>
                 </button>
               </div>
             </div>

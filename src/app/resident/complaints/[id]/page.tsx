@@ -95,8 +95,8 @@ export default async function ResidentComplaintDetailPage({
         <Card
           className={`shadow-warm-lg ${
             overdue && complaint.status !== "RESOLVED"
-              ? "border-red-300 bg-gradient-to-br from-white via-white to-red-50/20"
-              : "bg-white"
+              ? "border-red-400/80 bg-red-500/5 dark:bg-red-950/20"
+              : "bg-warm-card"
           }`}
         >
           <CardHeader className="pb-4 border-b border-warm-border/60">
@@ -143,7 +143,7 @@ export default async function ResidentComplaintDetailPage({
                 <h4 className="text-xs font-bold uppercase tracking-wider text-warm-muted mb-2 flex items-center gap-1.5">
                   <ImageIcon className="w-3.5 h-3.5 text-warm-primary" /> Attached Photo Evidence
                 </h4>
-                <div className="rounded-2xl overflow-hidden border border-warm-border max-w-md bg-stone-100 shadow-xs">
+                <div className="rounded-2xl overflow-hidden border border-warm-border max-w-md bg-warm-surface shadow-xs">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={complaint.photoUrl}
@@ -170,7 +170,7 @@ export default async function ResidentComplaintDetailPage({
         </Card>
 
         {/* Audit History Timeline Card */}
-        <Card className="shadow-warm bg-white">
+        <Card className="shadow-warm bg-warm-card">
           <CardHeader className="pb-3 border-b border-warm-border/60">
             <CardTitle className="text-lg flex items-center gap-2">
               <Clock className="w-5 h-5 text-warm-primary" />

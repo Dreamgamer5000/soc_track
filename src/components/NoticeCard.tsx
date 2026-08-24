@@ -25,8 +25,8 @@ export function NoticeCard({ notice, onDelete, isAdmin = false }: NoticeCardProp
     <Card
       className={`relative overflow-hidden transition-all duration-200 ${
         notice.isImportant
-          ? "border-amber-300 bg-gradient-to-br from-amber-50/70 via-white to-amber-50/30 shadow-warm"
-          : "bg-white"
+          ? "border-amber-500/40 bg-amber-500/5 dark:bg-amber-950/20 shadow-warm"
+          : "bg-warm-card"
       }`}
     >
       {notice.isImportant && (
@@ -39,7 +39,7 @@ export function NoticeCard({ notice, onDelete, isAdmin = false }: NoticeCardProp
           <div className="flex items-center gap-2">
             {notice.isImportant ? (
               <Badge variant="gold" className="text-xs font-bold py-1 px-2.5">
-                <Pin className="w-3.5 h-3.5 fill-amber-700 text-amber-700" />
+                <Pin className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
                 PINNED IMPORTANT
               </Badge>
             ) : (
@@ -71,7 +71,7 @@ export function NoticeCard({ notice, onDelete, isAdmin = false }: NoticeCardProp
         {/* Author Footer */}
         <div className="pt-2 border-t border-warm-border/60 flex items-center justify-between text-xs text-warm-muted">
           <div className="flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-amber-700" />
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-500" />
             <span>
               Posted by{" "}
               <strong className="text-warm-dark">

@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { Button } from "./ui/Button";
 import { Badge } from "./ui/Badge";
+import { ThemeToggle } from "./ThemeToggle";
 import type { SessionUser } from "@/lib/auth";
 
 export function Navbar({ currentUser }: { currentUser: SessionUser | null }) {
@@ -56,7 +57,7 @@ export function Navbar({ currentUser }: { currentUser: SessionUser | null }) {
   const navLinks = isAdmin ? adminNavLinks : residentNavLinks;
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-warm-border/80 shadow-xs">
+    <header className="sticky top-0 z-40 w-full bg-warm-card/90 backdrop-blur-md border-b border-warm-border shadow-xs transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           {/* Logo & Society Name */}
@@ -91,8 +92,8 @@ export function Navbar({ currentUser }: { currentUser: SessionUser | null }) {
                     href={link.href}
                     className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold transition-all ${
                       isActive
-                        ? "bg-white text-warm-primary shadow-xs"
-                        : "text-warm-dark/80 hover:text-warm-dark hover:bg-white/50"
+                        ? "bg-warm-card text-warm-primary shadow-xs border border-warm-border/50 font-bold"
+                        : "text-warm-dark/80 hover:text-warm-dark hover:bg-warm-card/60"
                     }`}
                   >
                     <Icon className="w-4 h-4" />
@@ -105,6 +106,9 @@ export function Navbar({ currentUser }: { currentUser: SessionUser | null }) {
 
           {/* Right Action Area */}
           <div className="flex items-center gap-2.5">
+            {/* Dark Mode Toggle Button */}
+            <ThemeToggle />
+
             {currentUser ? (
               <>
                 {/* Raise Complaint Action (for residents) */}
@@ -127,10 +131,10 @@ export function Navbar({ currentUser }: { currentUser: SessionUser | null }) {
                       {currentUser.name}
                       {isAdmin ? (
                         <Badge variant="gold" className="text-[10px] px-1.5 py-0">
-                          <ShieldCheck className="w-3 h-3 text-amber-700" /> Admin
+                          <ShieldCheck className="w-3 h-3 text-amber-500" /> Admin
                         </Badge>
                       ) : (
-                        <Badge variant="neutral" className="text-[10px] px-1.5 py-0 bg-stone-100 font-bold">
+                        <Badge variant="neutral" className="text-[10px] px-1.5 py-0 bg-warm-surface font-bold">
                           {currentUser.towerBlock || "Tower B"} • {currentUser.flatNumber || "402"}
                         </Badge>
                       )}
@@ -242,7 +246,7 @@ export function Navbar({ currentUser }: { currentUser: SessionUser | null }) {
               <button
                 type="button"
                 onClick={handleLogout}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-warm-crimson hover:bg-red-50 transition-colors w-full text-left mt-2"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-warm-crimson hover:bg-red-500/10 transition-colors w-full text-left mt-2"
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out

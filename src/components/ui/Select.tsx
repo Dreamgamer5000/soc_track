@@ -27,7 +27,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
             id={selectId}
             ref={ref}
             className={cn(
-              "w-full min-h-[48px] px-4 pr-10 rounded-xl border border-warm-border bg-white text-warm-dark text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary transition-all duration-150 disabled:opacity-50",
+              "w-full min-h-[48px] px-4 pr-10 rounded-xl border border-warm-border bg-warm-card text-warm-dark text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary transition-all duration-150 disabled:opacity-50",
               error && "border-warm-crimson focus:ring-warm-crimson/30 focus:border-warm-crimson",
               className
             )}

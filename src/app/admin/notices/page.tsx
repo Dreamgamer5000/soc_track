@@ -108,7 +108,7 @@ export default function AdminNoticesPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-500 flex items-center justify-center">
                 <Bell className="w-5 h-5" />
               </div>
               <h1 className="text-2xl sm:text-3xl font-black text-warm-dark tracking-tight">
@@ -137,7 +137,7 @@ export default function AdminNoticesPage() {
               Loading notice board...
             </div>
           ) : notices.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-warm-border p-12 text-center space-y-3 shadow-xs">
+            <div className="bg-warm-card rounded-2xl border border-warm-border p-12 text-center space-y-3 shadow-xs">
               <Inbox className="w-10 h-10 text-warm-muted mx-auto" />
               <h3 className="text-base font-bold text-warm-dark">
                 No Notices Active
@@ -168,14 +168,14 @@ export default function AdminNoticesPage() {
 
       {/* Post Notice Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-fade-in">
           <div
-            className="bg-white rounded-3xl border border-warm-border shadow-warm-lg max-w-lg w-full overflow-hidden"
+            className="bg-warm-card rounded-3xl border border-warm-border shadow-warm-lg max-w-lg w-full overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-5 sm:p-6 border-b border-warm-border flex items-center justify-between bg-warm-bg">
               <div className="flex items-center gap-2">
-                <Bell className="w-5 h-5 text-amber-700" />
+                <Bell className="w-5 h-5 text-amber-500" />
                 <h3 className="text-lg font-bold text-warm-dark">
                   Publish Notice / Circular
                 </h3>
@@ -212,14 +212,14 @@ export default function AdminNoticesPage() {
                   required
                   rows={4}
                   placeholder="Enter full notice text, affected towers, timing, and resident instructions..."
-                  className="w-full p-3.5 rounded-xl border border-warm-border bg-white text-warm-dark text-xs sm:text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary"
+                  className="w-full p-3.5 rounded-xl border border-warm-border bg-warm-card text-warm-dark text-xs sm:text-sm placeholder:text-warm-muted/60 focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary"
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                 />
               </div>
 
               {/* Pin Checkbox */}
-              <label className="flex items-center gap-3 p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 cursor-pointer select-none">
+              <label className="flex items-center gap-3 p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 cursor-pointer select-none">
                 <input
                   type="checkbox"
                   checked={isImportant}
@@ -227,10 +227,10 @@ export default function AdminNoticesPage() {
                   className="w-4 h-4 rounded text-amber-600 focus:ring-amber-500 border-amber-300"
                 />
                 <div>
-                  <span className="text-xs font-bold text-amber-950 flex items-center gap-1">
-                    <Pin className="w-3.5 h-3.5 fill-amber-700 text-amber-700" /> Pin as Important Announcement
+                  <span className="text-xs font-bold text-warm-dark flex items-center gap-1">
+                    <Pin className="w-3.5 h-3.5 fill-amber-500 text-amber-500" /> Pin as Important Announcement
                   </span>
-                  <span className="text-[11px] text-amber-800 block">
+                  <span className="text-[11px] text-warm-muted block">
                     Pins this notice to top of the bulletin and triggers an email broadcast to all residents.
                   </span>
                 </div>

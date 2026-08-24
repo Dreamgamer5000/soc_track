@@ -111,7 +111,7 @@ export default async function ResidentDashboard({
               <h1 className="text-2xl sm:text-3xl font-black text-warm-dark tracking-tight">
                 Welcome, {user.name}
               </h1>
-              <Badge variant="neutral" className="bg-white border-warm-border">
+              <Badge variant="neutral" className="bg-warm-card border-warm-border">
                 {user.towerBlock || "Tower B"} • Flat {user.flatNumber || "402"}
               </Badge>
             </div>
@@ -130,7 +130,7 @@ export default async function ResidentDashboard({
 
         {/* Quick Stats Strip */}
         <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-6">
-          <div className="bg-white p-4 rounded-2xl border border-warm-border shadow-xs flex flex-col justify-center">
+          <div className="bg-warm-card p-4 rounded-2xl border border-warm-border shadow-xs flex flex-col justify-center">
             <span className="text-xs font-bold text-warm-muted uppercase tracking-wider">
               Total Raised
             </span>
@@ -139,20 +139,20 @@ export default async function ResidentDashboard({
             </span>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl border border-amber-200 bg-amber-50/40 shadow-xs flex flex-col justify-center">
-            <span className="text-xs font-bold text-amber-800 uppercase tracking-wider flex items-center gap-1">
+          <div className="bg-warm-card p-4 rounded-2xl border border-amber-500/30 bg-amber-500/5 dark:bg-amber-950/20 shadow-xs flex flex-col justify-center">
+            <span className="text-xs font-bold text-amber-500 uppercase tracking-wider flex items-center gap-1">
               <Clock className="w-3.5 h-3.5" /> In Progress / Open
             </span>
-            <span className="text-2xl sm:text-3xl font-black text-amber-900 mt-1">
+            <span className="text-2xl sm:text-3xl font-black text-warm-dark mt-1">
               {openCount}
             </span>
           </div>
 
-          <div className="bg-white p-4 rounded-2xl border border-emerald-200 bg-emerald-50/40 shadow-xs flex flex-col justify-center">
-            <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider flex items-center gap-1">
+          <div className="bg-warm-card p-4 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 dark:bg-emerald-950/20 shadow-xs flex flex-col justify-center">
+            <span className="text-xs font-bold text-emerald-500 uppercase tracking-wider flex items-center gap-1">
               <CheckCircle2 className="w-3.5 h-3.5" /> Resolved
             </span>
-            <span className="text-2xl sm:text-3xl font-black text-emerald-900 mt-1">
+            <span className="text-2xl sm:text-3xl font-black text-warm-dark mt-1">
               {resolvedCount}
             </span>
           </div>
@@ -193,7 +193,7 @@ export default async function ResidentDashboard({
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
                     isSelected
                       ? "bg-warm-primary text-white border-warm-primary shadow-xs"
-                      : "bg-white text-warm-dark/80 hover:bg-warm-surface border-warm-border"
+                      : "bg-warm-card text-warm-dark/80 hover:bg-warm-surface border-warm-border"
                   }`}
                 >
                   {cat.label}
@@ -206,7 +206,7 @@ export default async function ResidentDashboard({
         {/* Complaints Feed */}
         <div className="mt-4 space-y-3.5">
           {augmentedComplaints.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-warm-border p-12 text-center space-y-3 shadow-xs">
+            <div className="bg-warm-card rounded-2xl border border-warm-border p-12 text-center space-y-3 shadow-xs">
               <div className="w-12 h-12 rounded-2xl bg-warm-surface border border-warm-border flex items-center justify-center text-warm-muted mx-auto">
                 <Inbox className="w-6 h-6" />
               </div>

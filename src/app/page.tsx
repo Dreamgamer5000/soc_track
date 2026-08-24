@@ -26,7 +26,7 @@ export default async function HomePage() {
       {/* Hero Section */}
       <div className="flex-1 flex flex-col items-center justify-center text-center py-12 md:py-20 px-4">
         <Badge variant="gold" className="mb-4 px-3.5 py-1 text-xs sm:text-sm">
-          <Sparkles className="w-3.5 h-3.5 text-amber-700" />
+          <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           Next-Gen Apartment Society Facility Management
         </Badge>
 
@@ -74,8 +74,8 @@ export default async function HomePage() {
 
         {/* Feature Highlights Grid */}
         <div className="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl text-left">
-          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-warm-border/80 shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500 mb-3.5">
               <Camera className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Photo Evidence</h3>
@@ -84,8 +84,8 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-warm-border/80 shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-700 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-500 mb-3.5">
               <Clock className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Status Audit Trail</h3>
@@ -94,8 +94,8 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-warm-border/80 shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-red-700 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
+            <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-500 mb-3.5">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Overdue Detection</h3>
@@ -104,8 +104,8 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="bg-white p-5 sm:p-6 rounded-2xl border border-warm-border/80 shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-500 mb-3.5">
               <Bell className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Pinned Notices</h3>

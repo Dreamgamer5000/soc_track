@@ -131,23 +131,23 @@ export default async function AdminDashboardPage() {
 
         {/* Overdue Urgent Alert Banner */}
         {overdueCount > 0 && (
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-red-50 via-amber-50 to-red-50 border border-red-200 text-red-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
+          <div className="p-4 sm:p-5 rounded-2xl bg-red-500/10 border border-red-500/30 text-warm-dark flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
             <div className="flex items-start sm:items-center gap-3.5">
               <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-5 h-5 animate-pulse" />
               </div>
               <div>
-                <h3 className="text-sm sm:text-base font-black">
+                <h3 className="text-sm sm:text-base font-black text-red-500">
                   {overdueCount} Overdue Ticket{overdueCount > 1 ? "s" : ""} Exceeding {thresholdDays} Days Threshold
                 </h3>
-                <p className="text-xs sm:text-sm text-red-800 mt-0.5 font-medium">
+                <p className="text-xs sm:text-sm text-warm-muted mt-0.5 font-medium">
                   These complaints have been prioritized to the top of the admin resolution queue.
                 </p>
               </div>
             </div>
 
             <Link href="/admin/complaints?status=OPEN">
-              <Button size="sm" className="bg-red-700 hover:bg-red-800 text-white font-bold shrink-0">
+              <Button size="sm" className="bg-red-600 hover:bg-red-700 text-white font-bold shrink-0">
                 Review Overdue Queue <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
@@ -193,7 +193,7 @@ export default async function AdminDashboardPage() {
         {/* Analytics Section: Category Breakdown + Quick Links */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left 2 Cols: Category Breakdown */}
-          <Card className="lg:col-span-2 shadow-warm bg-white">
+          <Card className="lg:col-span-2 shadow-warm bg-warm-card">
             <CardHeader className="pb-3 border-b border-warm-border/60">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg flex items-center gap-2">
@@ -213,7 +213,7 @@ export default async function AdminDashboardPage() {
 
           {/* Right 1 Col: Society Information & Quick Access */}
           <div className="space-y-6">
-            <Card className="shadow-warm bg-white">
+            <Card className="shadow-warm bg-warm-card">
               <CardHeader className="pb-3 border-b border-warm-border/60">
                 <CardTitle className="text-base">Society Snapshot</CardTitle>
               </CardHeader>
@@ -228,7 +228,7 @@ export default async function AdminDashboardPage() {
 
                 <div className="flex items-center justify-between p-3 rounded-xl bg-warm-surface border border-warm-border text-xs">
                   <span className="text-warm-muted font-bold flex items-center gap-1.5">
-                    <Bell className="w-4 h-4 text-amber-700" /> Active Notices
+                    <Bell className="w-4 h-4 text-amber-500" /> Active Notices
                   </span>
                   <span className="font-black text-warm-dark text-sm">{noticesCount}</span>
                 </div>

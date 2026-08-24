@@ -81,7 +81,7 @@ export function PhotoUploadDropzone({
       {photoUrl ? (
         <div className="relative rounded-2xl border-2 border-warm-sage/30 bg-warm-sage-light/20 p-3 flex items-center justify-between animate-fade-in">
           <div className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-xl overflow-hidden bg-stone-100 border border-warm-border relative shrink-0">
+            <div className="w-16 h-16 rounded-xl overflow-hidden bg-warm-surface border border-warm-border relative shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={photoUrl}
@@ -104,7 +104,7 @@ export function PhotoUploadDropzone({
             variant="ghost"
             size="sm"
             onClick={handleRemove}
-            className="text-warm-crimson hover:bg-red-50"
+            className="text-warm-crimson hover:bg-red-500/10"
           >
             <X className="w-4 h-4" />
             Remove
@@ -122,7 +122,7 @@ export function PhotoUploadDropzone({
           className={`cursor-pointer rounded-2xl border-2 border-dashed p-6 text-center transition-all duration-200 flex flex-col items-center justify-center min-h-[140px] ${
             dragActive
               ? "border-warm-primary bg-warm-primary/5"
-              : "border-warm-border hover:border-warm-primary/50 hover:bg-warm-surface/50 bg-white"
+              : "border-warm-border hover:border-warm-primary/50 hover:bg-warm-surface/50 bg-warm-card"
           }`}
         >
           <input

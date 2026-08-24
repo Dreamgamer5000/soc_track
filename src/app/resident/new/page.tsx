@@ -125,7 +125,7 @@ export default function NewComplaintPage() {
                         className={`p-3 rounded-2xl border text-left transition-all flex flex-col items-start gap-1.5 ${
                           isSelected
                             ? "border-warm-primary bg-warm-primary/10 ring-2 ring-warm-primary/30"
-                            : "border-warm-border bg-white hover:bg-warm-surface"
+                            : "border-warm-border bg-warm-card hover:bg-warm-surface"
                         }`}
                       >
                         <div
@@ -167,7 +167,7 @@ export default function NewComplaintPage() {
                   required
                   rows={4}
                   placeholder="Please describe the issue location, urgency, and any specific times technician can visit..."
-                  className="w-full p-4 rounded-xl border border-warm-border bg-white text-warm-dark text-sm placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary transition-all leading-relaxed"
+                  className="w-full p-4 rounded-xl border border-warm-border bg-warm-card text-warm-dark text-sm placeholder:text-warm-muted/60 focus:outline-none focus:ring-2 focus:ring-warm-primary/30 focus:border-warm-primary transition-all leading-relaxed"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />

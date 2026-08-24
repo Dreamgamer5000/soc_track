@@ -35,7 +35,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
           <div key={item.id} className="relative group">
             {/* Timeline Dot Indicator */}
             <div
-              className={`absolute -left-6 top-1.5 w-5 h-5 rounded-full border-2 border-white flex items-center justify-center shadow-xs transition-transform group-hover:scale-110 ${
+              className={`absolute -left-6 top-1.5 w-5 h-5 rounded-full border-2 border-warm-card flex items-center justify-center shadow-xs transition-transform group-hover:scale-110 ${
                 item.status === "RESOLVED"
                   ? "bg-warm-sage text-white"
                   : item.status === "IN_PROGRESS"
@@ -54,7 +54,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
             <div
               className={`p-4 rounded-2xl border transition-all ${
                 isFirst
-                  ? "bg-white border-warm-border shadow-xs"
+                  ? "bg-warm-card border-warm-border shadow-xs"
                   : "bg-warm-surface/60 border-warm-border/60"
               }`}
             >
@@ -75,9 +75,9 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
               <div className="mt-2.5 flex items-center gap-2 text-xs text-warm-muted">
                 <div className="w-5 h-5 rounded-full bg-warm-surface border border-warm-border flex items-center justify-center text-warm-dark">
                   {isAdmin ? (
-                    <ShieldCheck className="w-3 h-3 text-amber-700" />
+                    <ShieldCheck className="w-3 h-3 text-amber-500" />
                   ) : (
-                    <User className="w-3 h-3 text-stone-600" />
+                    <User className="w-3 h-3 text-stone-500" />
                   )}
                 </div>
                 <span>

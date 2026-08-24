@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,41 +11,41 @@ const config: Config = {
     extend: {
       colors: {
         warm: {
-          bg: "#FAF8F5",
-          card: "#FFFFFF",
-          border: "#EADBCC",
-          muted: "#78716C",
-          dark: "#292524",
-          surface: "#F5EFEB",
+          bg: "var(--bg-main)",
+          card: "var(--bg-card)",
+          border: "var(--border-color)",
+          muted: "var(--text-muted)",
+          dark: "var(--text-primary)",
+          surface: "var(--bg-surface)",
           primary: {
             DEFAULT: "#D05A3F",
             hover: "#B84A30",
-            light: "#FDF3F0",
-            border: "#F7C5BA",
+            light: "var(--primary-light)",
+            border: "var(--primary-border)",
           },
           amber: {
             DEFAULT: "#D97706",
-            light: "#FEF3C7",
-            text: "#92400E",
-            border: "#FDE68A",
+            light: "var(--amber-light)",
+            text: "var(--amber-text)",
+            border: "var(--amber-border)",
           },
           sage: {
             DEFAULT: "#2D7A4D",
-            light: "#DCFCE7",
-            text: "#166534",
-            border: "#BBF7D0",
+            light: "var(--sage-light)",
+            text: "var(--sage-text)",
+            border: "var(--sage-border)",
           },
           indigo: {
             DEFAULT: "#4F46E5",
-            light: "#EEF2FF",
-            text: "#3730A3",
-            border: "#C7D2FE",
+            light: "var(--indigo-light)",
+            text: "var(--indigo-text)",
+            border: "var(--indigo-border)",
           },
           crimson: {
             DEFAULT: "#DC2626",
-            light: "#FEE2E2",
-            text: "#991B1B",
-            border: "#FECACA",
+            light: "var(--crimson-light)",
+            text: "var(--crimson-text)",
+            border: "var(--crimson-border)",
           },
         },
       },

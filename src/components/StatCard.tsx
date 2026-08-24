@@ -23,34 +23,34 @@ export function StatCard({
 }: StatCardProps) {
   const schemeStyles = {
     warm: {
-      card: "border-warm-border hover:border-warm-primary/40 bg-white",
+      card: "border-warm-border hover:border-warm-primary/40 bg-warm-card",
       iconBg: "bg-warm-primary/10 border-warm-primary/20 text-warm-primary",
       valText: "text-warm-dark",
     },
     amber: {
-      card: "border-amber-200 bg-amber-50/40 hover:bg-amber-50/70",
-      iconBg: "bg-amber-100 border-amber-300 text-amber-800",
-      valText: "text-amber-950",
+      card: "border-amber-500/30 bg-amber-500/5 dark:bg-amber-950/20 hover:bg-amber-500/10",
+      iconBg: "bg-amber-500/15 border-amber-500/30 text-amber-500",
+      valText: "text-warm-dark",
     },
     sage: {
-      card: "border-emerald-200 bg-emerald-50/40 hover:bg-emerald-50/70",
-      iconBg: "bg-emerald-100 border-emerald-300 text-emerald-800",
-      valText: "text-emerald-950",
+      card: "border-emerald-500/30 bg-emerald-500/5 dark:bg-emerald-950/20 hover:bg-emerald-500/10",
+      iconBg: "bg-emerald-500/15 border-emerald-500/30 text-emerald-500",
+      valText: "text-warm-dark",
     },
     indigo: {
-      card: "border-indigo-200 bg-indigo-50/40 hover:bg-indigo-50/70",
-      iconBg: "bg-indigo-100 border-indigo-300 text-indigo-800",
-      valText: "text-indigo-950",
+      card: "border-indigo-500/30 bg-indigo-500/5 dark:bg-indigo-950/20 hover:bg-indigo-500/10",
+      iconBg: "bg-indigo-500/15 border-indigo-500/30 text-indigo-500",
+      valText: "text-warm-dark",
     },
     crimson: {
-      card: "border-red-200 bg-red-50/50 hover:bg-red-50/80",
-      iconBg: "bg-red-100 border-red-300 text-red-800",
-      valText: "text-red-950",
+      card: "border-red-500/30 bg-red-500/5 dark:bg-red-950/20 hover:bg-red-500/10",
+      iconBg: "bg-red-500/15 border-red-500/30 text-red-500",
+      valText: "text-warm-dark",
     },
     stone: {
-      card: "border-stone-200 bg-stone-50/60 hover:bg-stone-100/60",
-      iconBg: "bg-stone-200 border-stone-300 text-stone-700",
-      valText: "text-stone-900",
+      card: "border-warm-border bg-warm-card hover:bg-warm-surface",
+      iconBg: "bg-warm-surface border-warm-border text-warm-dark",
+      valText: "text-warm-dark",
     },
   };
 

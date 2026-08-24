@@ -105,17 +105,17 @@ export default function AdminComplaintsPage() {
 
         {/* Overdue Warning Alert Box */}
         {overdueCount > 0 && (
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-red-50 to-amber-50 border border-red-200 text-red-900 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs animate-fade-in">
+          <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-warm-dark flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs animate-fade-in">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-5 h-5 animate-pulse" />
               </div>
               <div>
-                <h4 className="text-sm font-black">
+                <h4 className="text-sm font-black text-red-500">
                   {overdueCount} Overdue Complaint{overdueCount > 1 ? "s" : ""} Require Attention
                 </h4>
-                <p className="text-xs text-red-800 mt-0.5">
-                  Complaints open longer than <strong>{thresholdDays} days</strong> have been automatically prioritized to the top.
+                <p className="text-xs text-warm-muted mt-0.5">
+                  Complaints open longer than <strong className="text-warm-dark">{thresholdDays} days</strong> have been automatically prioritized to the top.
                 </p>
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function AdminComplaintsPage() {
         )}
 
         {/* Filter Controls Bar */}
-        <div className="bg-white p-4 sm:p-5 rounded-2xl border border-warm-border shadow-xs space-y-4">
+        <div className="bg-warm-card p-4 sm:p-5 rounded-2xl border border-warm-border shadow-xs space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Search */}
             <div className="relative">
@@ -188,7 +188,7 @@ export default function AdminComplaintsPage() {
               Loading complaints queue...
             </div>
           ) : complaints.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-warm-border p-12 text-center space-y-3 shadow-xs">
+            <div className="bg-warm-card rounded-2xl border border-warm-border p-12 text-center space-y-3 shadow-xs">
               <Inbox className="w-10 h-10 text-warm-muted mx-auto" />
               <h3 className="text-base font-bold text-warm-dark">
                 No Complaints Match Filters

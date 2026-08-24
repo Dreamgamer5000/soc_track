@@ -21,12 +21,12 @@ import { PriorityBadge } from "./PriorityBadge";
 import { formatTimeAgo, formatDate, calculateDaysOpen } from "@/lib/utils";
 
 const categoryIcons: Record<string, { icon: React.ElementType; label: string; color: string }> = {
-  PLUMBING: { icon: Wrench, label: "Plumbing", color: "text-blue-600 bg-blue-50 border-blue-200" },
-  ELECTRICAL: { icon: Zap, label: "Electrical", color: "text-amber-600 bg-amber-50 border-amber-200" },
-  LIFT: { icon: Building, label: "Lift & Elevator", color: "text-purple-600 bg-purple-50 border-purple-200" },
-  SECURITY: { icon: ShieldAlert, label: "Security & Gate", color: "text-red-600 bg-red-50 border-red-200" },
-  CLEANING: { icon: Sparkles, label: "Cleaning & Waste", color: "text-emerald-600 bg-emerald-50 border-emerald-200" },
-  GENERAL: { icon: HelpCircle, label: "General Facility", color: "text-stone-600 bg-stone-50 border-stone-200" },
+  PLUMBING: { icon: Wrench, label: "Plumbing", color: "text-blue-500 bg-blue-500/10 border-blue-500/20" },
+  ELECTRICAL: { icon: Zap, label: "Electrical", color: "text-amber-500 bg-amber-500/10 border-amber-500/20" },
+  LIFT: { icon: Building, label: "Lift & Elevator", color: "text-purple-500 bg-purple-500/10 border-purple-500/20" },
+  SECURITY: { icon: ShieldAlert, label: "Security & Gate", color: "text-red-500 bg-red-500/10 border-red-500/20" },
+  CLEANING: { icon: Sparkles, label: "Cleaning & Waste", color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20" },
+  GENERAL: { icon: HelpCircle, label: "General Facility", color: "text-stone-500 bg-stone-500/10 border-stone-500/20" },
 };
 
 export interface ComplaintCardProps {
@@ -67,8 +67,8 @@ export function ComplaintCard({
     <Card
       className={`group relative overflow-hidden transition-all duration-200 hover:shadow-warm-lg hover:border-warm-primary/40 ${
         complaint.isOverdue && complaint.status !== "RESOLVED"
-          ? "border-red-300 bg-gradient-to-br from-white via-white to-red-50/30"
-          : "bg-white"
+          ? "border-red-400/80 bg-red-500/5 dark:bg-red-950/20"
+          : "bg-warm-card"
       }`}
     >
       {/* Overdue Top Banner Stripe */}
@@ -92,7 +92,7 @@ export function ComplaintCard({
               </span>
 
               {isAdminView && complaint.resident && (
-                <span className="text-xs font-semibold text-warm-dark bg-warm-surface px-2 py-0.5 rounded-md border border-warm-border/80">
+                <span className="text-xs font-semibold text-warm-dark bg-warm-surface px-2 py-0.5 rounded-md border border-warm-border">
                   {complaint.resident.towerBlock || "Tower B"} • Flat {complaint.resident.flatNumber || "N/A"}
                 </span>
               )}
@@ -115,10 +115,10 @@ export function ComplaintCard({
             {/* Resident details for admin */}
             {isAdminView && complaint.resident && (
               <div className="text-xs text-warm-muted flex items-center gap-1.5 pt-1">
-                <User className="w-3.5 h-3.5 text-stone-400" />
+                <User className="w-3.5 h-3.5 text-warm-muted" />
                 <span>Raised by <strong className="text-warm-dark">{complaint.resident.name}</strong></span>
                 {complaint.isOverdue && complaint.status !== "RESOLVED" && (
-                  <span className="text-red-600 font-bold ml-1">
+                  <span className="text-red-500 font-bold ml-1">
                     (Open for {daysOpen} days)
                   </span>
                 )}
@@ -139,7 +139,7 @@ export function ComplaintCard({
 
           <div className="flex items-center gap-2">
             {complaint.photoUrl && (
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-warm-border shrink-0 bg-stone-100" title="Photo attached">
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-warm-border shrink-0 bg-warm-surface" title="Photo attached">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={complaint.photoUrl}
