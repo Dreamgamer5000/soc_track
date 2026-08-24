@@ -14,20 +14,20 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npx prisma generate
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 
 # Production runner stage
 FROM base AS runner
-ENV NODE_ENV production
-ENV NEXT_TELEMETRY_DISABLED 1
-ENV PORT 3000
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 # Create persistent storage directories
-RUN mkdir -p public/uploads prisma && chown -R nextjs:nodejs /app
+RUN mkdir -p public/uploads prisma data && chown -R nextjs:nodejs /app
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json

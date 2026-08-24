@@ -75,7 +75,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 The application is deployed on a Google Cloud Compute Engine VM (`35.247.46.135`) using Docker and a centralized **Caddy Reverse Proxy** on a shared Docker bridge network (`web_net`).
 
 ```
-                    [ Internet (soc_track.rejit.in) ]
+                    [ Internet (society.rejit.in) ]
                                    │
                                    ▼  (Ports 80 & 443)
                ┌───────────────────────────────────────┐
@@ -95,9 +95,9 @@ The application is deployed on a Google Cloud Compute Engine VM (`35.247.46.135`
 ```
 
 ### 1. Cloudflare DNS Setup
-To route `soc_track.rejit.in` to the server:
+To route `society.rejit.in` to the server:
 - **Type:** `A`
-- **Name:** `soc_track` (or `soc_track.rejit.in`)
+- **Name:** `society` (or `society.rejit.in`)
 - **IPv4 Address:** `35.247.46.135`
 - **Proxy Status:** Proxied (Orange Cloud) or DNS-Only (Grey Cloud)
 > **Note:** Do NOT put port numbers in Cloudflare DNS. Caddy automatically handles port routing and SSL certificates.
@@ -105,7 +105,7 @@ To route `soc_track.rejit.in` to the server:
 ### 2. Caddy Reverse Proxy Configuration (`~/caddy/Caddyfile`)
 ```caddyfile
 # Society Maintenance Tracker
-soc_track.rejit.in {
+society.rejit.in {
     reverse_proxy soc_track_app:3000
 }
 
@@ -136,11 +136,18 @@ docker compose up --build
 Access the application locally at [http://localhost:3002](http://localhost:3002).
 
 ### 5. Database Utilities
-To sync your local SQLite database to production:
-```bash
-chmod +x push-db-to-vm.sh
-./push-db-to-vm.sh
-```
+- **Download live backup from production**:
+  ```bash
+  chmod +x pull-from-vm-to-db.sh
+  ./pull-from-vm-to-db.sh
+  ```
+  Safely pulls `dev.db` from the VM into `prisma/dev.db` with an automated timestamped backup in `./backups/`.
+
+- **Push local DB to production (Initial Setup only)**:
+  ```bash
+  chmod +x push-db-to-vm.sh
+  ./push-db-to-vm.sh
+  ```
 
 ---
 

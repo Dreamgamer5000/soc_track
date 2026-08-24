@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   app:
     build:
@@ -11,9 +9,13 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      - DATABASE_URL=file:./dev.db
+      - DATABASE_URL=file:/app/data/dev.db
       - JWT_SECRET=production-society-maintenance-secret-key-2026
     volumes:
-      - ./prisma:/app/prisma
-      - ./public/uploads:/app/public/uploads
+      - soc_track_db_dev:/app/data
+      - soc_track_uploads_dev:/app/public/uploads
     restart: unless-stopped
+
+volumes:
+  soc_track_db_dev:
+  soc_track_uploads_dev:

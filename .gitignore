@@ -35,3 +35,9 @@ Thumbs.db
 .agents/skills
 gemini.md
 skills-lock.json
+
+# local scripts & backups
+deploy.sh
+push-db-to-vm.sh
+pull-from-vm-to-db.sh
+backups/
