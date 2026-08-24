@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app:
+    image: us-west1-docker.pkg.dev/hosting-server-505409/tracker-repo/soc-track:latest
+    init: true
+    container_name: soc_track_app
+    restart: always
+    volumes:
+      # Mount persistent SQLite and uploaded media
+      - ./data:/app/prisma
+      - ./uploads:/app/public/uploads
+    expose:
+      - "3000"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=file:./dev.db
+    networks:
+      - web_net
+
+networks:
+  web_net:
+    external: true

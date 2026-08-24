@@ -68,14 +68,79 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🐳 Docker Deployment
+---
 
-To spin up the entire application inside Docker:
+## 🐳 Production Deployment & Architecture
 
-```bash
-docker-compose up --build
+The application is deployed on a Google Cloud Compute Engine VM (`35.247.46.135`) using Docker and a centralized **Caddy Reverse Proxy** on a shared Docker bridge network (`web_net`).
+
 ```
-Access the application at [http://localhost:3000](http://localhost:3000).
+                    [ Internet (soc_track.rejit.in) ]
+                                   │
+                                   ▼  (Ports 80 & 443)
+               ┌───────────────────────────────────────┐
+               │    ~/caddy/ (Dedicated Caddy Ingress) │
+               └───────────────────┬───────────────────┘
+                                   │
+             ┌─────────────────────┴─────────────────────┐
+             │         Shared Docker Network: web_net    │
+             └───────────┬─────────────────┬─────────────┘
+                         │                 │
+                         ▼                 ▼
+          ┌──────────────────────┐  ┌──────────────────────┐
+          │     ~/tracker-app/   │  │     ~/soc-track/     │
+          │    (Placement App)   │  │   (Soc Track App)    │
+          │     Port 3001        │  │     Port 3000        │
+          └──────────────────────┘  └──────────────────────┘
+```
+
+### 1. Cloudflare DNS Setup
+To route `soc_track.rejit.in` to the server:
+- **Type:** `A`
+- **Name:** `soc_track` (or `soc_track.rejit.in`)
+- **IPv4 Address:** `35.247.46.135`
+- **Proxy Status:** Proxied (Orange Cloud) or DNS-Only (Grey Cloud)
+> **Note:** Do NOT put port numbers in Cloudflare DNS. Caddy automatically handles port routing and SSL certificates.
+
+### 2. Caddy Reverse Proxy Configuration (`~/caddy/Caddyfile`)
+```caddyfile
+# Society Maintenance Tracker
+soc_track.rejit.in {
+    reverse_proxy soc_track_app:3000
+}
+
+# Placement Tracker
+tracker.rejit.in {
+    reverse_proxy tracker-app:3001
+}
+```
+
+### 3. One-Command Production Deployment
+Run the automated deployment script locally:
+```bash
+chmod +x deploy.sh
+./deploy.sh
+```
+
+This script:
+1. Builds the production Docker image locally.
+2. Pushes to Google Artifact Registry: `us-west1-docker.pkg.dev/hosting-server-505409/tracker-repo/soc-track:latest`.
+3. Sets up `~/soc-track/` on the VM with persistent volumes for SQLite and media uploads.
+4. Pulls and launches the container attached to `web_net`.
+
+### 4. Local Docker Testing
+To run the container locally:
+```bash
+docker compose up --build
+```
+Access the application locally at [http://localhost:3002](http://localhost:3002).
+
+### 5. Database Utilities
+To sync your local SQLite database to production:
+```bash
+chmod +x push-db-to-vm.sh
+./push-db-to-vm.sh
+```
 
 ---
 

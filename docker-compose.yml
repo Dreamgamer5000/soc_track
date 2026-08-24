@@ -5,15 +5,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: society_maintenance_tracker
+    container_name: soc_track_app
     ports:
-      - "3000:3000"
+      - "3002:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
       - DATABASE_URL=file:./dev.db
       - JWT_SECRET=production-society-maintenance-secret-key-2026
     volumes:
-      - ./prisma/dev.db:/app/prisma/dev.db
+      - ./prisma:/app/prisma
       - ./public/uploads:/app/public/uploads
     restart: unless-stopped
