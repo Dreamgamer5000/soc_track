@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: society_maintenance_tracker
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=file:./dev.db
+      - JWT_SECRET=production-society-maintenance-secret-key-2026
+    volumes:
+      - ./prisma/dev.db:/app/prisma/dev.db
+      - ./public/uploads:/app/public/uploads
+    restart: unless-stopped
