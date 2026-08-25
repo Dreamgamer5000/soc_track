@@ -2,6 +2,8 @@
 
 > A full-stack apartment society maintenance and facility management web application designed for transparent complaint resolution, verifiable audit logs, photo evidence, community notice boards, and automated overdue ticket detection.
 
+🌐 **Live Production Application:** [https://society.rejit.in](https://society.rejit.in)
+
 ---
 
 ## 🌟 Key Features
@@ -72,46 +74,46 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🐳 Production Deployment & Architecture
 
-The application is deployed on a Google Cloud Compute Engine VM (`35.247.46.135`) using Docker and a centralized **Caddy Reverse Proxy** on a shared Docker bridge network (`web_net`).
+The live application is hosted at **[https://society.rejit.in](https://society.rejit.in)**, running as a containerized Docker service behind a dedicated **Caddy Ingress Reverse Proxy** on a shared Docker bridge network (`web_net`).
 
 ```
                     [ Internet (society.rejit.in) ]
                                    │
                                    ▼  (Ports 80 & 443)
-               ┌───────────────────────────────────────┐
-               │    ~/caddy/ (Dedicated Caddy Ingress) │
-               └───────────────────┬───────────────────┘
-                                   │
-             ┌─────────────────────┴─────────────────────┐
-             │         Shared Docker Network: web_net    │
-             └───────────┬─────────────────┬─────────────┘
-                         │                 │
-                         ▼                 ▼
-          ┌──────────────────────┐  ┌──────────────────────┐
-          │     ~/tracker-app/   │  │     ~/soc-track/     │
-          │    (Placement App)   │  │   (Soc Track App)    │
-          │     Port 3001        │  │     Port 3000        │
-          └──────────────────────┘  └──────────────────────┘
+                ┌───────────────────────────────────────┐
+                │    ~/caddy/ (Dedicated Caddy Ingress) │
+                └───────────────────┬───────────────────┘
+                                    │
+              ┌─────────────────────┴─────────────────────┐
+              │         Shared Docker Network: web_net    │
+              └───────────┬─────────────────┬─────────────┘
+                          │                 │
+                          ▼                 ▼
+           ┌──────────────────────┐  ┌──────────────────────┐
+           │     ~/sample-app/    │  │     ~/soc-track/     │
+           │    (Other Service)   │  │   (Soc Track App)    │
+           │     Port 3001        │  │     Port 3000        │
+           └──────────────────────┘  └──────────────────────┘
 ```
 
 ### 1. Cloudflare DNS Setup
-To route `society.rejit.in` to the server:
+To route your domain to the server:
 - **Type:** `A`
-- **Name:** `society` (or `society.rejit.in`)
-- **IPv4 Address:** `35.247.46.135`
+- **Name:** `society` (or `society.example.com`)
+- **IPv4 Address:** `<YOUR_SERVER_IP>`
 - **Proxy Status:** Proxied (Orange Cloud) or DNS-Only (Grey Cloud)
 > **Note:** Do NOT put port numbers in Cloudflare DNS. Caddy automatically handles port routing and SSL certificates.
 
 ### 2. Caddy Reverse Proxy Configuration (`~/caddy/Caddyfile`)
 ```caddyfile
 # Society Maintenance Tracker
-society.rejit.in {
+society.example.com {
     reverse_proxy soc_track_app:3000
 }
 
-# Placement Tracker
-tracker.rejit.in {
-    reverse_proxy tracker-app:3001
+# Secondary Microservice / Example App
+service2.example.com {
+    reverse_proxy sample_app:3001
 }
 ```
 
@@ -124,7 +126,7 @@ chmod +x deploy.sh
 
 This script:
 1. Builds the production Docker image locally.
-2. Pushes to Google Artifact Registry: `us-west1-docker.pkg.dev/hosting-server-505409/tracker-repo/soc-track:latest`.
+2. Pushes to Google Artifact Registry: `us-west1-docker.pkg.dev/<PROJECT_ID>/<REPO_NAME>/soc-track:latest`.
 3. Sets up `~/soc-track/` on the VM with persistent volumes for SQLite and media uploads.
 4. Pulls and launches the container attached to `web_net`.
 
