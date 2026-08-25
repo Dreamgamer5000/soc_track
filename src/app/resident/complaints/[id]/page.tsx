@@ -23,6 +23,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { StatusBadge } from "@/components/StatusBadge";
 import { PriorityBadge } from "@/components/PriorityBadge";
 import { Timeline } from "@/components/Timeline";
+import { ComplaintPhotoEvidence } from "@/components/ComplaintPhotoEvidence";
 
 const categoryIcons: Record<string, { icon: React.ElementType; label: string }> = {
   PLUMBING: { icon: Wrench, label: "Plumbing" },
@@ -139,19 +140,10 @@ export default async function ResidentComplaintDetailPage({
 
             {/* Photo Attachment if present */}
             {complaint.photoUrl && (
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-warm-muted mb-2 flex items-center gap-1.5">
-                  <ImageIcon className="w-3.5 h-3.5 text-warm-primary" /> Attached Photo Evidence
-                </h4>
-                <div className="rounded-2xl overflow-hidden border border-warm-border max-w-md bg-warm-surface shadow-xs">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={complaint.photoUrl}
-                    alt="Complaint photo"
-                    className="w-full h-auto object-cover max-h-72"
-                  />
-                </div>
-              </div>
+              <ComplaintPhotoEvidence
+                photoUrl={complaint.photoUrl}
+                title={`Evidence for ${complaint.title}`}
+              />
             )}
 
             {/* Resolved Banner */}

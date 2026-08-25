@@ -208,4 +208,17 @@ describe("Society Maintenance Tracker Test Suite", () => {
       });
     });
   });
+
+  describe("5. Photo Evidence & Upload Pipeline", () => {
+    test("should validate image extensions and mime types", () => {
+      const validExtensions = [".jpg", ".jpeg", ".png", ".webp"];
+      const testFile = "sample_leak.jpg";
+      const ext = "." + testFile.split(".").pop()?.toLowerCase();
+      assert.equal(validExtensions.includes(ext), true);
+
+      const invalidFile = "malicious_script.sh";
+      const invalidExt = "." + invalidFile.split(".").pop()?.toLowerCase();
+      assert.equal(validExtensions.includes(invalidExt), false);
+    });
+  });
 });

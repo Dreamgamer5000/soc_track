@@ -20,6 +20,8 @@ import { StatusBadge } from "./StatusBadge";
 import { PriorityBadge } from "./PriorityBadge";
 import { formatTimeAgo, formatDate, calculateDaysOpen } from "@/lib/utils";
 
+import { ImageModal } from "./ImageModal";
+
 const categoryIcons: Record<string, { icon: React.ElementType; label: string; color: string }> = {
   PLUMBING: { icon: Wrench, label: "Plumbing", color: "text-blue-500 bg-blue-500/10 border-blue-500/20" },
   ELECTRICAL: { icon: Zap, label: "Electrical", color: "text-amber-500 bg-amber-500/10 border-amber-500/20" },
@@ -55,12 +57,13 @@ export function ComplaintCard({
   isAdminView = false,
   onStatusClick,
 }: ComplaintCardProps) {
+  const [isImageModalOpen, setIsImageModalOpen] = React.useState(false);
   const cat = categoryIcons[complaint.category] || categoryIcons.GENERAL;
   const CategoryIcon = cat.icon;
   const daysOpen = calculateDaysOpen(complaint.createdAt);
 
   const detailHref = isAdminView
-    ? `/admin/complaints`
+    ? `/admin/complaints/${complaint.id}`
     : `/resident/complaints/${complaint.id}`;
 
   return (
@@ -139,35 +142,57 @@ export function ComplaintCard({
 
           <div className="flex items-center gap-2">
             {complaint.photoUrl && (
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-warm-border shrink-0 bg-warm-surface" title="Photo attached">
+              <button
+                type="button"
+                onClick={() => setIsImageModalOpen(true)}
+                className="w-8 h-8 rounded-lg overflow-hidden border border-warm-border shrink-0 bg-warm-surface hover:ring-2 hover:ring-warm-primary transition-all cursor-zoom-in"
+                title="Click to view photo evidence"
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={complaint.photoUrl}
                   alt="Thumbnail"
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </button>
             )}
 
             {isAdminView && onStatusClick ? (
-              <button
-                type="button"
-                onClick={onStatusClick}
-                className="text-xs font-bold text-warm-primary bg-warm-primary/10 hover:bg-warm-primary hover:text-white px-3 py-1.5 rounded-lg transition-colors"
-              >
-                Update Status
-              </button>
+              <div className="flex items-center gap-1.5">
+                <Link
+                  href={detailHref}
+                  className="text-xs font-bold text-warm-dark hover:text-warm-primary transition-colors py-1.5 px-2 rounded-lg hover:bg-warm-surface"
+                >
+                  Details
+                </Link>
+                <button
+                  type="button"
+                  onClick={onStatusClick}
+                  className="text-xs font-bold text-warm-primary bg-warm-primary/10 hover:bg-warm-primary hover:text-white px-2.5 py-1.5 rounded-lg transition-colors"
+                >
+                  Update Status
+                </button>
+              </div>
             ) : (
               <Link
                 href={detailHref}
                 className="inline-flex items-center gap-1 text-xs font-bold text-warm-dark hover:text-warm-primary transition-colors py-1.5 px-2 rounded-lg hover:bg-warm-surface"
               >
-                View History <ArrowRight className="w-3.5 h-3.5" />
+                View Details & History <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             )}
           </div>
         </div>
       </div>
+
+      {complaint.photoUrl && (
+        <ImageModal
+          isOpen={isImageModalOpen}
+          onClose={() => setIsImageModalOpen(false)}
+          imageUrl={complaint.photoUrl}
+          title={`Photo Evidence: ${complaint.title}`}
+        />
+      )}
     </Card>
   );
 }
