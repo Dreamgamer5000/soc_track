@@ -30,33 +30,33 @@
   --crimson-border: #FECACA;
 }
 
-/* AMOLED Deep Pitch Black Dark Mode */
+/* AMOLED Deep Pitch Black Dark Mode with Glowing Sunset Ember & Cyber Gold Accents */
 .dark {
   --bg-main: #000000;
-  --bg-card: #0B0B0C;
-  --bg-surface: #141416;
-  --border-color: #222226;
+  --bg-card: #0D0D11;
+  --bg-surface: #17171F;
+  --border-color: #282836;
   --text-primary: #FFFFFF;
   --text-muted: #9CA3AF;
 
-  --primary-light: rgba(208, 90, 63, 0.16);
-  --primary-border: rgba(208, 90, 63, 0.35);
+  --primary-light: rgba(246, 128, 72, 0.16);
+  --primary-border: rgba(246, 128, 72, 0.42);
 
-  --amber-light: rgba(245, 158, 11, 0.16);
-  --amber-text: #FBBF24;
-  --amber-border: rgba(245, 158, 11, 0.35);
+  --amber-light: rgba(255, 204, 0, 0.16);
+  --amber-text: #FFCC00;
+  --amber-border: rgba(255, 204, 0, 0.42);
 
-  --sage-light: rgba(16, 185, 129, 0.16);
-  --sage-text: #34D399;
-  --sage-border: rgba(16, 185, 129, 0.35);
+  --sage-light: rgba(0, 229, 153, 0.16);
+  --sage-text: #00E599;
+  --sage-border: rgba(0, 229, 153, 0.42);
 
-  --indigo-light: rgba(99, 102, 241, 0.16);
-  --indigo-text: #A5B4FC;
-  --indigo-border: rgba(99, 102, 241, 0.35);
+  --indigo-light: rgba(138, 124, 255, 0.16);
+  --indigo-text: #A78BFA;
+  --indigo-border: rgba(138, 124, 255, 0.42);
 
-  --crimson-light: rgba(239, 68, 68, 0.16);
-  --crimson-text: #F87171;
-  --crimson-border: rgba(239, 68, 68, 0.35);
+  --crimson-light: rgba(255, 77, 77, 0.16);
+  --crimson-text: #FF5C5C;
+  --crimson-border: rgba(255, 77, 77, 0.42);
 }
 
 body {

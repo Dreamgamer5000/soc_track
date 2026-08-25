@@ -74,8 +74,8 @@ export default async function HomePage() {
 
         {/* Feature Highlights Grid */}
         <div className="mt-16 sm:mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full max-w-6xl text-left">
-          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm hover:border-warm-primary/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-500 dark:text-[#FFCC00] mb-3.5">
               <Camera className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Photo Evidence</h3>
@@ -84,8 +84,8 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-500 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm hover:border-warm-primary/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-500 dark:text-[#8A7CFF] mb-3.5">
               <Clock className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Status Audit Trail</h3>
@@ -94,8 +94,8 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-500 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm hover:border-warm-primary/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-500 dark:text-[#FF4D4D] mb-3.5">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Overdue Detection</h3>
@@ -104,8 +104,8 @@ export default async function HomePage() {
             </p>
           </div>
 
-          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-500 mb-3.5">
+          <div className="bg-warm-card p-5 sm:p-6 rounded-2xl border border-warm-border shadow-warm hover:border-warm-primary/40 transition-colors">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-500 dark:text-[#00E599] mb-3.5">
               <Bell className="w-5 h-5" />
             </div>
             <h3 className="text-base font-bold text-warm-dark">Pinned Notices</h3>

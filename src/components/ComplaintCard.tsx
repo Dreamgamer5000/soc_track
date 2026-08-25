@@ -23,12 +23,12 @@ import { formatTimeAgo, formatDate, calculateDaysOpen } from "@/lib/utils";
 import { ImageModal } from "./ImageModal";
 
 const categoryIcons: Record<string, { icon: React.ElementType; label: string; color: string }> = {
-  PLUMBING: { icon: Wrench, label: "Plumbing", color: "text-blue-500 bg-blue-500/10 border-blue-500/20" },
-  ELECTRICAL: { icon: Zap, label: "Electrical", color: "text-amber-500 bg-amber-500/10 border-amber-500/20" },
-  LIFT: { icon: Building, label: "Lift & Elevator", color: "text-purple-500 bg-purple-500/10 border-purple-500/20" },
-  SECURITY: { icon: ShieldAlert, label: "Security & Gate", color: "text-red-500 bg-red-500/10 border-red-500/20" },
-  CLEANING: { icon: Sparkles, label: "Cleaning & Waste", color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20" },
-  GENERAL: { icon: HelpCircle, label: "General Facility", color: "text-stone-500 bg-stone-500/10 border-stone-500/20" },
+  PLUMBING: { icon: Wrench, label: "Plumbing", color: "text-sky-500 bg-sky-500/10 border-sky-500/30" },
+  ELECTRICAL: { icon: Zap, label: "Electrical", color: "text-amber-500 dark:text-[#FFCC00] bg-amber-500/10 border-amber-500/30" },
+  LIFT: { icon: Building, label: "Lift & Elevator", color: "text-purple-500 dark:text-[#8A7CFF] bg-purple-500/10 border-purple-500/30" },
+  SECURITY: { icon: ShieldAlert, label: "Security & Gate", color: "text-red-500 dark:text-[#FF4D4D] bg-red-500/10 border-red-500/30" },
+  CLEANING: { icon: Sparkles, label: "Cleaning & Waste", color: "text-emerald-500 dark:text-[#00E599] bg-emerald-500/10 border-emerald-500/30" },
+  GENERAL: { icon: HelpCircle, label: "General Facility", color: "text-stone-500 dark:text-stone-300 bg-stone-500/10 border-stone-500/30" },
 };
 
 export interface ComplaintCardProps {

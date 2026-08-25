@@ -23,28 +23,28 @@ export function StatCard({
 }: StatCardProps) {
   const schemeStyles = {
     warm: {
-      card: "border-warm-border hover:border-warm-primary/40 bg-warm-card",
-      iconBg: "bg-warm-primary/10 border-warm-primary/20 text-warm-primary",
+      card: "border-warm-border hover:border-warm-primary/50 bg-warm-card",
+      iconBg: "bg-warm-primary/10 border-warm-primary/30 text-warm-primary",
       valText: "text-warm-dark",
     },
     amber: {
-      card: "border-amber-500/30 bg-amber-500/5 dark:bg-amber-950/20 hover:bg-amber-500/10",
-      iconBg: "bg-amber-500/15 border-amber-500/30 text-amber-500",
+      card: "border-amber-500/30 bg-amber-500/5 dark:bg-amber-500/10 hover:bg-amber-500/15",
+      iconBg: "bg-amber-500/15 border-amber-500/40 text-amber-500 dark:text-[#FFCC00]",
       valText: "text-warm-dark",
     },
     sage: {
-      card: "border-emerald-500/30 bg-emerald-500/5 dark:bg-emerald-950/20 hover:bg-emerald-500/10",
-      iconBg: "bg-emerald-500/15 border-emerald-500/30 text-emerald-500",
+      card: "border-emerald-500/30 bg-emerald-500/5 dark:bg-emerald-500/10 hover:bg-emerald-500/15",
+      iconBg: "bg-emerald-500/15 border-emerald-500/40 text-emerald-500 dark:text-[#00E599]",
       valText: "text-warm-dark",
     },
     indigo: {
-      card: "border-indigo-500/30 bg-indigo-500/5 dark:bg-indigo-950/20 hover:bg-indigo-500/10",
-      iconBg: "bg-indigo-500/15 border-indigo-500/30 text-indigo-500",
+      card: "border-indigo-500/30 bg-indigo-500/5 dark:bg-indigo-500/10 hover:bg-indigo-500/15",
+      iconBg: "bg-indigo-500/15 border-indigo-500/40 text-indigo-500 dark:text-[#8A7CFF]",
       valText: "text-warm-dark",
     },
     crimson: {
-      card: "border-red-500/30 bg-red-500/5 dark:bg-red-950/20 hover:bg-red-500/10",
-      iconBg: "bg-red-500/15 border-red-500/30 text-red-500",
+      card: "border-red-500/30 bg-red-500/5 dark:bg-red-500/10 hover:bg-red-500/15",
+      iconBg: "bg-red-500/15 border-red-500/40 text-red-500 dark:text-[#FF4D4D]",
       valText: "text-warm-dark",
     },
     stone: {

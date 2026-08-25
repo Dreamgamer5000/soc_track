@@ -93,11 +93,11 @@ export function AdminComplaintDetailClient({
         {overdue && complaint.status !== "RESOLVED" && (
           <div className="p-4 rounded-2xl bg-red-500/10 border border-red-500/30 text-warm-dark flex items-center justify-between gap-3 shadow-xs animate-fade-in">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-red-600 dark:bg-[#FF4D4D] text-white flex items-center justify-center shrink-0 shadow-xs">
                 <AlertTriangle className="w-5 h-5 animate-pulse" />
               </div>
               <div>
-                <h4 className="text-sm font-black text-red-500">
+                <h4 className="text-sm font-black text-red-500 dark:text-[#FF4D4D]">
                   Overdue Complaint (Open for {daysOpen} days)
                 </h4>
                 <p className="text-xs text-warm-muted mt-0.5">
@@ -115,14 +115,14 @@ export function AdminComplaintDetailClient({
             <Card
               className={`shadow-warm-lg ${
                 overdue && complaint.status !== "RESOLVED"
-                  ? "border-red-400/80 bg-red-500/5 dark:bg-red-950/20"
+                  ? "border-red-400/80 bg-red-500/5 dark:bg-red-500/10 dark:border-red-500/40"
                   : "bg-warm-card"
               }`}
             >
               <CardHeader className="pb-4 border-b border-warm-border/60">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-10 h-10 rounded-xl bg-warm-primary/10 border border-warm-primary/20 flex items-center justify-center text-warm-primary shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-warm-primary/15 border border-warm-primary/30 flex items-center justify-center text-warm-primary shrink-0">
                       <CategoryIcon className="w-5 h-5" />
                     </div>
                     <div>

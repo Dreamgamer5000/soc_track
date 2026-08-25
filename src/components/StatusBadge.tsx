@@ -14,7 +14,7 @@ export function StatusBadge({
   if (isOverdue && status !== "RESOLVED") {
     return (
       <Badge variant="overdue" className={className}>
-        <AlertTriangle className="w-3 h-3 text-red-600 animate-bounce" />
+        <AlertTriangle className="w-3 h-3 text-red-600 dark:text-[#FF4D4D] animate-bounce" />
         OVERDUE
       </Badge>
     );
@@ -24,21 +24,21 @@ export function StatusBadge({
     case "OPEN":
       return (
         <Badge variant="open" className={className}>
-          <AlertCircle className="w-3 h-3 text-amber-700" />
+          <AlertCircle className="w-3 h-3 text-amber-700 dark:text-[#FFCC00]" />
           Open
         </Badge>
       );
     case "IN_PROGRESS":
       return (
         <Badge variant="in_progress" className={className}>
-          <Clock className="w-3 h-3 text-indigo-700" />
+          <Clock className="w-3 h-3 text-indigo-700 dark:text-[#8A7CFF]" />
           In Progress
         </Badge>
       );
     case "RESOLVED":
       return (
         <Badge variant="resolved" className={className}>
-          <CheckCircle2 className="w-3 h-3 text-emerald-700" />
+          <CheckCircle2 className="w-3 h-3 text-emerald-700 dark:text-[#00E599]" />
           Resolved
         </Badge>
       );

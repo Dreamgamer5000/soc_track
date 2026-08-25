@@ -96,14 +96,14 @@ export default async function ResidentComplaintDetailPage({
         <Card
           className={`shadow-warm-lg ${
             overdue && complaint.status !== "RESOLVED"
-              ? "border-red-400/80 bg-red-500/5 dark:bg-red-950/20"
+              ? "border-red-400/80 bg-red-500/5 dark:bg-red-500/10 dark:border-red-500/40"
               : "bg-warm-card"
           }`}
         >
           <CardHeader className="pb-4 border-b border-warm-border/60">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-warm-primary/10 border border-warm-primary/20 flex items-center justify-center text-warm-primary shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-warm-primary/15 border border-warm-primary/30 flex items-center justify-center text-warm-primary shrink-0">
                   <CategoryIcon className="w-5 h-5" />
                 </div>
                 <div>
